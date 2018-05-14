@@ -1,0 +1,101 @@
+body {
+    background: #3d516b;
+}
+
+form {
+    width: 320px;
+    padding: 60px 25px 80px;
+    margin: 50px auto;
+    background: #f8d348;
+    display: flex;
+    flex-direction: column;
+}
+
+svg {
+    width: 70%;
+    border-radius: 50%;
+    background: #fff;
+    margin-bottom: 40px;
+    align-self: center;
+    transform-style: preserve-3d;
+}
+
+input {
+    font-size: 16px;
+    border: 0;
+    border-radius: 5px;
+    outline: 0;
+    padding: 10px 15px;
+    margin-top: 15px;
+}
+
+@keyframes lookaway-up {
+    from {
+        transform: rotate3d(.2, 0, -.01, 20deg);
+    }
+
+    to {
+        transform: rotate3d(.2, -.05, -.01, 20deg);
+    }
+}
+
+@keyframes lookaway-down {
+    0% {
+        transform: rotate3d(-.2, 0, -.01, 20deg);
+    }
+
+    100% {
+        transform: rotate3d(-.2, -.05, .01, 20deg);
+    }
+}
+
+.ears {
+    transform-origin: 50% 50% 5px;
+}
+
+.eyes {
+    transform-origin: 50% 50% -40px;
+}
+
+.muzzle {
+    transform-origin: 50% 50% -44px;
+}
+
+.ears, .eyes, .muzzle {
+    transition: transform .5s;
+}
+
+.focused {
+    transition: transform .1s;
+}
+
+.look-away .ears,
+.look-away .eyes,
+.look-away .muzzle {
+    transition-duration: .3s;
+    animation: 3s infinite alternate;
+}
+
+.look-away.up .ears,
+.look-away.up .eyes,
+.look-away.up .muzzle {
+    transform: rotate3d(.2, 0, 0, 20deg) !important;
+}
+
+.look-away.down .ears,
+.look-away.down .eyes,
+.look-away.down .muzzle {
+    transform: rotate3d(-.2, 0, 0, 20deg) !important;    
+}
+
+.look-away.playing.up .ears,
+.look-away.playing.up .eyes,
+.look-away.playing.up .muzzle {
+    animation-name: lookaway-up;
+}
+
+.look-away.playing.down .ears,
+.look-away.playing.down .eyes,
+.look-away.playing.down .muzzle {
+    animation-name: lookaway-down;
+}
